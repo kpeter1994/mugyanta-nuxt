@@ -10,16 +10,17 @@ import 'swiper/css/navigation';
 
 const images = ref([])
 const modules = [Navigation];
+const config = useRuntimeConfig();
 
 onMounted(async () => {
   try {
-    const response = await axios.get('http://127.0.0.1:8000/gallery');
+    const response = await axios.get(config.public.apiBaseUrl +'/api/gallery');
     images.value = response.data;
   } catch (error) {
     console.error('Error fetching gallery images:', error);
   }
 });
-console.log(images.value)
+
 
 </script>
 
