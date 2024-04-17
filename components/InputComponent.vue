@@ -5,9 +5,10 @@ const props = defineProps<{
   modelValue: string
   label: string
   type: {
-    type: StringConstructor
+    type: String
     default: 'text'
   }
+  error: string[]
   name: string
 }>()
 
@@ -30,9 +31,11 @@ watch(() => props.modelValue, (newValue) => {
     <input :name="props.name"
            :id="props.name"
            :type="props.type"
+           placeholder=" "
             v-model="inputValue"
            class="block rounded-lg px-2.5 pb-2.5 pt-5 w-full text-sm text-gray-100 bg-gradient-to-t from-gray-800 to-gray-500 border-0 border-b-2 border-transparent appearance-none focus:outline-none focus:ring-0 focus:border-bronze peer"  />
     <label :for="props.name" class="absolute pointer-events-none text-base text-gray-100 dark:text-gray-400 duration-300 transform -translate-y-4 scale-75 top-4 z-10 origin-[0] start-2.5 peer-focus:text-white peer-focus:dark:text-white peer-placeholder-shown:scale-100 peer-placeholder-shown:translate-y-0 peer-focus:scale-75 peer-focus:-translate-y-4 rtl:peer-focus:translate-x-1/4 rtl:peer-focus:left-auto">{{props.label}} <sup >*</sup></label>
+    <p v-if="props.error" class="text-sm ml-2 text-red-400">{{props.error[0]}}</p>
   </div>
 </template>
 

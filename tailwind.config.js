@@ -17,11 +17,12 @@ module.exports = {
       },
       backgroundImage: {
         "hero-bg": "url('/img/hero.jpg')",
-        "gradient-img": "url('/assets/image/gradient.png')",
+        "gradient-img": "url('/assets/image/gradient.svg')",
       },
       colors: {
         'bronze': '#AA8E6E',
         'bronze-light': '#e6c095',
+        'bronze-lighter': '#f2ae61',
 
         'gray-100': '#F4F4F6',
         'gray-200': '#D7DADF',

@@ -3,15 +3,32 @@
 </script>
 
 <template>
-  <header class="absolute top-0 left-0 w-full text-white">
-    <nav class="mx-auto px-3 flex justify-center relative">
-      <ul class="fixed inline-flex bg-black bg-opacity-20 backdrop-blur-lg rounded-full p-3 mt-3 shadow-2xl z-50">
-        <li class="py-2 px-3"><NuxtLink to="/">Főoldal</NuxtLink></li>
-        <li class="py-2 px-3"><NuxtLink to="/blog">Alkalmazási területek</NuxtLink></li>
-        <li class="py-2 px-3"><NuxtLink to="/blog">Mügyanta padló árak</NuxtLink></li>
-        <li class="py-2 px-3"><NuxtLink to="#kapcsolat">Kapcsolat</NuxtLink></li>
+  <header class="w-full text-white flex items-center py-1.5 px-6  justify-between ">
+
+    <NuxtLink to="/" class="flex gap-1.5">
+      <img src="../assets/image/logo.svg" class="h-10" alt="">
+      <span class="font-sans font-extrabold uppercase">Műgyanta <br> Padló</span>
+    </NuxtLink>
+
+
+    <nav class="px-3 hidden lg:flex relative">
+      <ul class="inline-flex">
+        <li class="py-2 px-3 hover:text-bronze-light"><NuxtLink to="/">Főoldal</NuxtLink></li>
+        <li class="py-2 px-3 hover:text-bronze-light"><NuxtLink to="/mugyantapadlo-elonyei">Mügyanta padló előnyei</NuxtLink></li>
+        <li class="py-2 px-3 hover:text-bronze-light"><NuxtLink to="/mugyantapadlo-arak">Árkalkulátor</NuxtLink></li>
+        <li class="py-2 px-3 hover:text-bronze-light"><NuxtLink to="#kapcsolat">Kapcsolat</NuxtLink></li>
       </ul>
     </nav>
+
+    <SidebarComponent class="lg:hidden" >
+      <ul class="">
+        <li class="py-2 px-3 hover:text-bronze-light"><NuxtLink to="/">Főoldal</NuxtLink></li>
+        <li class="py-2 px-3 hover:text-bronze-light"><NuxtLink to="/mugyantapadlo-elonyei">Mügyanta padló előnyei</NuxtLink></li>
+        <li class="py-2 px-3 hover:text-bronze-light"><NuxtLink to="/mugyantapadlo-arak">Árkalkulátor</NuxtLink></li>
+        <li class="py-2 px-3 hover:text-bronze-light"><NuxtLink to="#kapcsolat">Kapcsolat</NuxtLink></li>
+      </ul>
+
+    </SidebarComponent>
   </header>
 
 </template>

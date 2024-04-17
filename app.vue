@@ -1,7 +1,8 @@
 
 <template>
-  <NavComponent />
-  <main>
+<!--  <BannerComponent />-->
+  <main class="bg-gray-900 bg-gradient-img text-white">
+    <NavComponent />
     <NuxtPage />
   </main>
   <FooterComponent />

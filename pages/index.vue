@@ -2,25 +2,76 @@
 
 import GlassCardComponent from "~/components/GlassCardComponent.vue";
 
-
+useHead({
+  title: 'Lakosági és ipari műgyantapadlók készítése',
+  htmlAttrs: {
+    lang: 'hu',
+  },
+  meta: [
+    {
+      name: "description",
+      content: 'Műgyanta padlórendszerek gyors és megbízható kivitelezése lakossági és ipari használatra egyaránt',
+    },
+    {
+      name: "charset",
+      content: "UTF-8",
+    }
+  ],
+  link: [
+    { rel: 'icon', type: 'image/ico', href: '/favicon.ico' },
+    { rel: 'apple-touch-icon', sizes: '32x32', href: '/apple-touch-icon.svg' },
+  ]
+});
+useSchemaOrg({
+  '@context': 'https://schema.org',
+  '@type': 'Product',
+  name: 'Műgyanta Padló',
+  url: 'https://dev.createweb.hu/',
+  logo: 'https://mugyantapadlo.hu/logo.svg',
+  agregateRating: {
+    '@type': 'AggregateRating',
+    "ratingValue": "4.8",
+    "bestRating": "5",
+    "worstRating": "1",
+    "ratingCount": "14"
+  },
+  sameAs: [
+    'https://www.facebook.com/padlo.mugyanta.1',
+    'https://www.instagram.com/p/CjCyp6DIg4e/',
+  ],
+});
 </script>
 
 <template>
-  <div class="bg-gray-900 bg-gradient-img text-white">
-    <div class="w-[90%] lg:w-[80%] mx-auto">
-      <div class="w-full h-[60vh] rounded-b-3xl overflow-hidden">
-        <img class="w-full h-full object-cover" src="../assets/image/mugyanta-padlo-keszitese.jpg" alt="">
-      </div>
+  <div>
 
-      <div class="flex flex-col lg:flex-row py-14">
-        <p class="font-serif text-4xl lg:text-[80px] tracking-wider leading-[110%] font-bold mb-3 text-center lg:text-left">Ipari műgyanta padló rendszerek</p>
-        <div class="lg:px-12" >
-          <p class="text-lg text-center lg:text-left">Műgyanta padló rendszerek gyors és megbízható kivitelezése lakossági és ipari használatra egyaránt.</p>
-          <ButtonComponent class="mt-6 w-full lg:w-auto"><NuxtLink to="#kapcsolat">Ajánlatot kérek</NuxtLink></ButtonComponent>
+    <SocialComponent class="hidden xl:flex"></SocialComponent>
+
+
+    <div class="flex flex-col lg:flex-row">
+      <div class="lg:w-1/2 flex justify-center items-center order-2 lg:order-1">
+        <div class="max-w-3xl p-2">
+          <h1 class="lg:text-6xl  uppercase opacity-80 mb-1.5 lg:mb-6 text-center lg:text-left font-serif text-4xl lg:text-[80px] tracking-wider leading-[110%] font-bold ">Ipari műgyanta padló rendszerek</h1>
+          <p class="lg:text-lg 2xl:text-xl opacity-70 text-center lg:text-left">Műgyanta padló rendszerek gyors és megbízható kivitelezése lakossági és ipari használatra egyaránt.</p>
+          <div ref="primaryButton" class="mt-6 flex flex-col xl:flex-row gap-3">
+            <NuxtLink to="#kapcsolat">
+              <ButtonComponent class="mt-6 w-full lg:w-auto">Ajánlatot kérek</ButtonComponent>
+            </NuxtLink>
+          </div>
         </div>
+
+      </div>
+      <div class="order-1 lg:order-2 lg:block w-full lg:w-1/2 rounded-l-[2rem] overflow-hidden">
+<!--        <img loading="lazy" class="w-full h-full object-cover" src="../assets/image/mugyanta-padlo-keszitese.webp" alt="mügyanta padló készítés">-->
+        <NuxtImg
+            src="/image/mugyanta-padlo-keszitese.webp"
+            alt="mügyanta padló készítés"
+            sizes="xs:480px sm:640px md:768px lg:960px"
+            class="w-full h-full object-cover"/>
       </div>
 
     </div>
+
     <SectionComponent title="bemutatkozás">
       <div class="flex flex-col lg:flex-row justify-center">
         <div class="max-w-lg">
@@ -31,7 +82,11 @@ import GlassCardComponent from "~/components/GlassCardComponent.vue";
           <span class="text-right block">kivitelező</span>
         </div>
         <div class="max-w-sm p-6 mx-auto lg:mx-0">
-          <img class="w-full h-full object-cover rounded" src="../assets/image/sztajkosz-petrosz.webp" alt="Szajkosz Petrosz kivitelező">
+          <NuxtImg loading="lazy"
+                   sizes="sm: 340px lg: 360px "
+                   src="/image/sztajkosz-petrosz.webp"
+                   alt="Szajkosz Petrosz kivitelező"
+                   class="w-full h-full object-cover rounded"/>
         </div>
 
       </div>
@@ -57,12 +112,14 @@ import GlassCardComponent from "~/components/GlassCardComponent.vue";
 
         </GlassCardComponent>
         <div class="col-start-6 col-end-13 row-start-1 flex items-center">
-          <img class="w-full" src="../assets/image/pince2.png" title="műgyanta burkolat" alt="műgyanta burkolat">
+          <NuxtImg sizes="sm:460px lg:730px" loading="lazy" src="/image/pince.webp" alt="műgyanta burkolat" class="w-full"/>
         </div>
       </div>
 
       <div class="flex justify-center">
-        <ButtonComponent class="mt-6 w-full lg:w-auto">Ajánlatot kérek</ButtonComponent>
+        <NuxtLink to="#kapcsolat">
+          <ButtonComponent class="mt-6 w-full lg:w-auto">Ajánlatot kérek</ButtonComponent>
+        </NuxtLink>
       </div>
 
     </SectionComponent>
@@ -72,31 +129,31 @@ import GlassCardComponent from "~/components/GlassCardComponent.vue";
         <h2 class="font-serif text-4xl mb-12 text-center">FELHASZNÁLÁSI TERÜLETEK</h2>
         <div class="flex justify-center flex-wrap gap-6">
           <div data-aos="fade-up">
-            <img class="w-[250px]" src="../assets/image/felhasznalas/uzem-csarnok.webp" alt="üzem csarnok">
+            <NuxtImg sizes="sm: 250px" loading="lazy" src="/image/felhasznalas/uzem-csarnok.webp" alt="üzem csarnok" class="w-[250px]"/>
             <p class="text-center text-lg font-bold mt-3">Üzemcsarnokok</p>
           </div>
           <div data-aos="fade-up">
-            <img class="w-[250px]" src="../assets/image/felhasznalas/bemutato-terem.webp" alt="Bemutató termek, üzlethelyiségek">
+            <NuxtImg sizes="sm: 250px" loading="lazy" src="/image/felhasznalas/bemutato-terem.webp" alt="Bemutató termek, üzlethelyiségek"/>
             <p class="text-center text-lg font-bold mt-3">Bemutató termek, <br> üzlethelyiségek</p>
           </div>
           <div data-aos="fade-up">
-            <img class="w-[250px]" src="../assets/image/felhasznalas/elelmiszeripari-terulet.webp" alt="Élelmiszeripari területek">
+            <NuxtImg sizes="sm: 250px" loading="lazy" src="/image/felhasznalas/elelmiszeripari-terulet.webp" alt="Élelmiszeripari területek" />
             <p class="text-center text-lg font-bold mt-3">Élelmiszeripari területek</p>
           </div>
           <div data-aos="fade-up">
-            <img class="w-[250px]" src="../assets/image/felhasznalas/garazs.webp" alt="Garázs, teremgarázs">
+            <NuxtImg sizes="sm: 250px" loading="lazy" src="/image/felhasznalas/garazs.webp" alt="Garázs, teremgarázs"/>
             <p class="text-center text-lg font-bold mt-3">Garázs, teremgarázs</p>
           </div>
           <div data-aos="fade-up">
-            <img class="w-[250px]" src="../assets/image/felhasznalas/muhely.webp" alt="Műhelyek">
+            <NuxtImg sizes="sm: 250px" loading="lazy" src="/image/felhasznalas/muhely.webp" alt="Műhelyek"/>
             <p class="text-center text-lg font-bold mt-3">Műhelyek</p>
           </div>
           <div data-aos="fade-up">
-            <img class="w-[250px]" src="../assets/image/felhasznalas/labor.webp" alt="Laboratóriumok">
+            <NuxtImg sizes="sm: 250px" loading="lazy" src="/image/felhasznalas/labor.webp" alt="Laboratóriumok"/>
             <p class="text-center text-lg font-bold mt-3">Laboratóriumok</p>
           </div>
           <div data-aos="fade-up">
-            <img class="w-[250px]" src="../assets/image/felhasznalas/lakossagi-helyseg.webp" alt="Lakossági helyiségek">
+            <NuxtImg sizes="sm: 250px" loading="lazy" src="/image/felhasznalas/lakossagi-helyseg.webp" alt="Lakossági helyiségek"/>
             <p class="text-center text-lg font-bold mt-3">Lakossági helyiségek</p>
           </div>
 
@@ -107,7 +164,7 @@ import GlassCardComponent from "~/components/GlassCardComponent.vue";
     <SectionComponent title="ipari">
       <div class="lg:grid grid-cols-12 grid-rows-1">
         <div class="col-start-2 col-end-8 row-start-1 ">
-          <img class="w-full rounded" src="../assets/image/blog/mugynata-padlo.webp" title="IPARI PADLÓ RENDSZEREK" alt="IPARI PADLÓ RENDSZEREK">
+          <NuxtImg sizes="sm: 460px lg: 730px" loading="lazy" src="/image/blog/mugynata-padlo.webp" title="IPARI PADLÓ RENDSZEREK" alt="IPARI PADLÓ RENDSZEREK" class="w-full rounded"/>
         </div>
         <div class="col-start-7 col-end-13 row-start-1 flex items-center">
           <GlassCardComponent class="w-full">
@@ -124,7 +181,9 @@ import GlassCardComponent from "~/components/GlassCardComponent.vue";
         </div>
       </div>
       <div class="flex justify-center">
-        <ButtonComponent class="mt-6 w-full lg:w-auto">Ajánlatot kérek</ButtonComponent>
+        <NuxtLink to="#kapcsolat">
+          <ButtonComponent class="mt-6 w-full lg:w-auto">Ajánlatot kérek</ButtonComponent>
+        </NuxtLink>
       </div>
     </SectionComponent>
 
@@ -144,12 +203,14 @@ import GlassCardComponent from "~/components/GlassCardComponent.vue";
         </div>
 
         <div class="col-start-6 col-end-13 row-start-1 flex items-center">
-          <img class="w-full lg:rounded" src="../assets/image/lakosagi-kep.webp" title="lakossági műgyanta" alt="lakossági műgyanta">
+          <NuxtImg sizes="sm: 460px lg: 730px" loading="lazy" src="/image/lakosagi-kep.webp" title="lakossági műgyanta" alt="lakossági műgyanta" class="w-full lg:rounded"/>
         </div>
       </div>
 
       <div class="flex justify-center">
-        <ButtonComponent class="mt-6 w-full lg:w-auto">Ajánlatot kérek</ButtonComponent>
+        <NuxtLink to="#kapcsolat">
+          <ButtonComponent class="mt-6 w-full lg:w-auto">Ajánlatot kérek</ButtonComponent>
+        </NuxtLink>
       </div>
 
     </SectionComponent>
@@ -158,8 +219,34 @@ import GlassCardComponent from "~/components/GlassCardComponent.vue";
       <GallerylComponent></GallerylComponent>
     </SectionComponent>
 
+<!--    <SectionComponent id="blog" title="blog">-->
+<!--      <div class="flex justify-center gap-3 flex-wrap">-->
+<!--        <BlogCardComponent-->
+<!--            title="Teszt bejegyzés"-->
+<!--            description="Teszt bejegyzés leírása"-->
+<!--            date="2022-03-01"-->
+<!--            link="/mugyantapadlo-elonyei"-->
+<!--            image="/blog/mugyanta-padlo-elonyei.webp">-->
+<!--        </BlogCardComponent>-->
 
-    <FormComponent></FormComponent>
+<!--        <BlogCardComponent-->
+<!--            title="Teszt bejegyzés"-->
+<!--            description="Teszt bejegyzés leírása"-->
+<!--            date="2022-03-01"-->
+<!--            link="/mugyantapadlo-elonyei"-->
+<!--            image="/blog/mugyanta-padlo-elonyei.webp">-->
+<!--        </BlogCardComponent>-->
+
+<!--      </div>-->
+<!--    </SectionComponent>-->
+
+
+    <SectionComponent title="kapcsolat">
+
+      <FormComponent></FormComponent>
+
+    </SectionComponent>
+
 
 
   </div>

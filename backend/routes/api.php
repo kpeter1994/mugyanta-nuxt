@@ -23,3 +23,5 @@ Route::get('/gallery', [PageController::class, 'gallery']);
 
 Route::post('/send-mail', [PageController::class, 'sendMail']);
 
+Route::post('/upload', [PageController::class, 'imageUpload']);
+

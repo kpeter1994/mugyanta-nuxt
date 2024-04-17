@@ -57,7 +57,8 @@ onMounted(async () => {
         <swiper-slide v-for="image in images">
           <div class="flex justify-between items-center bg-black bg-opacity-40 backdrop-blur-2xl">
             <div class="w-full h-[550px] flex items-center justify-center">
-              <img class="h-full object-contain" alt="galléria" :src="`gallery/${image}`">
+<!--              <img class="h-full object-contain" alt="galléria" :src="`gallery/${image}`">-->
+              <NuxtImg sizes="xs:480px sm:640px md:768px lg:960px" class="h-full object-contain" format="webp" :src="`http://localhost:3000/gallery/${image}`" alt="galléria" />
             </div>
           </div>
         </swiper-slide>

@@ -14,7 +14,8 @@ import {
     faCircleXmark,
     faEnvelope,
     faArrowRight,
-    faCircleCheck
+    faCircleCheck,
+    faBars
 } from '@fortawesome/free-solid-svg-icons'; // Példa ikon
 import { FontAwesomeIcon } from '@fortawesome/vue-fontawesome';
 import { defineNuxtPlugin } from '#app';
@@ -31,6 +32,7 @@ library.add(
     faChevronRight,
     faChevronLeft,
     faPhone,
+    faBars,
     faEnvelope,
     faCircleXmark,
     faArrowRight,

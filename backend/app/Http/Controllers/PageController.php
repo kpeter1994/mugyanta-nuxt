@@ -2,6 +2,7 @@
 
 namespace App\Http\Controllers;
 
+use App\Mail\ConfirEmail;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\File;
 use Illuminate\Support\Facades\Mail;
@@ -25,6 +26,20 @@ class PageController extends Controller
         return response()->json($imageNames);
     }
 
+    public function imageUpload(Request $request)
+    {
+        $request->validate([
+            'image' => 'required|image|mimes:jpeg,png,jpg,gif,webp,svg|max:9048',
+        ]);
+
+        $imageName = time().'.'.$request->image->extension();
+        $request->image->move(public_path('uploads'), $imageName);
+
+        $imagePath = env('APP_URL').'/uploads/' . $imageName;
+
+        return response()->json(['path' => $imagePath]);
+    }
+
     public function sendMail(Request $request)
     {
 
@@ -34,13 +49,14 @@ class PageController extends Controller
                 'phone' => 'required',
                 'email' => 'required',
                 'size' => 'nullable|numeric',
-                'surface' => 'required',
+                'surface' => '',
                 'city' => '',
+                'image' => '',
                 'message' => '',
             ]);
 
-            $recipient = 'smitpeter777@gmail.com';
-            Mail::to('smitpeter777@gmail.com')->send(new TestEmail($validatedData));
+            Mail::to(env('MAIL_FROM_ADDRESS'))->send(new TestEmail($validatedData));
+            Mail::to($validatedData['email'])->send(new ConfirEmail($validatedData));
         }catch (\Illuminate\Validation\ValidationException $e) {
             // Validációs hiba esetén visszatérünk a hibaüzenetekkel
             return response()->json(['errors' => $e->errors()], 422);
@@ -52,8 +68,7 @@ class PageController extends Controller
 
 
 
-
-        return 'E-mail elküldve.';
+        return response()->json(['success' => 'E-mail sikeresen elküldve!']);
     }
 
 }
