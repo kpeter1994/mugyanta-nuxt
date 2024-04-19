@@ -64,6 +64,7 @@ useSchemaOrg({
       <div class="order-1 lg:order-2 lg:block w-full lg:w-1/2 rounded-l-[2rem] overflow-hidden">
 <!--        <img loading="lazy" class="w-full h-full object-cover" src="../assets/image/mugyanta-padlo-keszitese.webp" alt="mügyanta padló készítés">-->
         <NuxtImg
+            loading="lazy"
             src="/image/mugyanta-padlo-keszitese.webp"
             alt="mügyanta padló készítés"
             sizes="xs:480px sm:640px md:768px lg:960px"
